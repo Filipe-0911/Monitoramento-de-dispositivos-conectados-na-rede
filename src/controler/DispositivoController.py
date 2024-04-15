@@ -1,7 +1,7 @@
-from classes.model.Dispositivo import Dispositivo
+from src.model.Dispositivo import Dispositivo
 import datetime
 
-class Dispositivos:
+class DispositivoController:
     Dispositivo.criar_tabela()
     dispositivo = Dispositivo()
     
@@ -25,17 +25,17 @@ class Dispositivos:
         return self.__dict__
     
     def alterar_dispositivo(self, id):
-        Dispositivos.__get_dispositivo().alterar_dispositivo(id, self)
+        DispositivoController.__get_dispositivo().alterar_dispositivo(id, self)
     
     def inserir_bd(self):
-        Dispositivos.__get_dispositivo().criar_dispositivo(nome=self.__nome, mac=self.__mac_address, data_acesso=datetime.datetime.now())
+        DispositivoController.__get_dispositivo().criar_dispositivo(nome=self.__nome, mac=self.__mac_address, data_acesso=datetime.datetime.now())
         
-        return Dispositivos.__get_dispositivo().consultar_dispositivo(self.mac_address)
+        return DispositivoController.__get_dispositivo().consultar_dispositivo(self.mac_address)
     
     @staticmethod
     def remover_dispositivo(id):
         try:
-            Dispositivos.__get_dispositivo().remover_dispositivo(id)
+            DispositivoController.__get_dispositivo().remover_dispositivo(id)
         except Exception as e:
             print(e)
         
@@ -50,7 +50,7 @@ class Dispositivos:
     @staticmethod
     def consultar_dados():
         
-        lista = Dispositivos.dispositivo.consultar_dados()
+        lista = DispositivoController.dispositivo.consultar_dados()
         
         for disp in lista:
             print(disp)
@@ -60,15 +60,15 @@ class Dispositivos:
         if nome:
             print()
             print(f"Nome: {nome}")
-            return Dispositivos.__get_dispositivo().consultar_dispositivo(nome = nome)
+            return DispositivoController.__get_dispositivo().consultar_dispositivo(nome = nome)
         elif mac:
             print()
             print(f"mac: {mac}")
-            return Dispositivos.__get_dispositivo().consultar_dispositivo(mac = mac)
+            return DispositivoController.__get_dispositivo().consultar_dispositivo(mac = mac)
         else:
             print()
             print(f"id: {id}")
-            return Dispositivos.__get_dispositivo().consultar_dispositivo(id = id)
+            return DispositivoController.__get_dispositivo().consultar_dispositivo(id = id)
     
     @classmethod
     def __get_dispositivo(cls):

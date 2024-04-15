@@ -1,9 +1,8 @@
-import datetime
-import string
-from dotenv import load_dotenv
-import os
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Date, VARCHAR
 from sqlalchemy.orm import sessionmaker, relationship, declarative_base
+import datetime
+from dotenv import load_dotenv
+import os
 
 load_dotenv()
 

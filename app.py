@@ -1,5 +1,5 @@
-from classes.controler.dispositivoController import Dispositivos
-from classes.services.Leitura import Leitura
+from src.controler.DispositivoController import DispositivoController
+from src.services.Leitura import Leitura
 import subprocess
 
 def printa_opcoes():
@@ -29,7 +29,7 @@ def main():
             case "1":
                 nome = input("Digite o nome do dispositivo: ")
                 mac = input("Digite o MAC Address do dispositivo: ")
-                dispositivo = Dispositivos(nome, mac)
+                dispositivo = DispositivoController(nome, mac)
                 
                 print("Os dados estão corretos?")
                 print("1- Sim")
@@ -59,16 +59,16 @@ def main():
                         print(novo_mac_address)
                         dispositivo.set_mac_address(novo_nome)
                     
-                    print(Dispositivos.consultar_especifico(nome=dispositivo.nome))
+                    print(DispositivoController.consultar_especifico(nome=dispositivo.nome))
                 
             case "2":
-                Dispositivos.consultar_dados()
+                DispositivoController.consultar_dados()
             case "3":
                 dispositivo = input("Informe o nome ou o MAC Address do dispositivo: ")
                 if ":" in dispositivo:
-                    print(Dispositivos.consultar_especifico(mac=dispositivo))
+                    print(DispositivoController.consultar_especifico(mac=dispositivo))
                 else:
-                    print(Dispositivos.consultar_especifico(nome=dispositivo))
+                    print(DispositivoController.consultar_especifico(nome=dispositivo))
                 
             case "4":
                 nome = input("Informe o novo nome: ")
@@ -76,10 +76,10 @@ def main():
                 id = int(input("Informe o ID do dispositivo: "))
                 
                 # alteracao = { "nome": nome, "mac_address":mac_address }
-                alteracao = Dispositivos(nome, mac_address)
+                alteracao = DispositivoController(nome, mac_address)
                 alteracao.alterar_dispositivo(id)
             case "5":
-                Dispositivos.consultar_dados()
+                DispositivoController.consultar_dados()
                 print()
                 id = int(input("Informe o ID do dispositivo que deseja EXCLUIR: "))
                 print(f"Você confirma a EXCLUSÃO do Dispositivo com ID {id}?")
@@ -89,18 +89,14 @@ def main():
                 
                 if confirma == "1":
                     try:
-                        Dispositivos.remover_dispositivo(id)
+                        DispositivoController.remover_dispositivo(id)
                         print(f"Dispositivo removido com sucesso.")
                     except Exception as e:
                         print(f"Ocorreu um erro: {e}")
             
             case "6":
-                
-
-                # Comando a ser executado
                 comando = "sudo nmap -sn 192.168.1.0/24 > dispositivos_conectados.txt"
 
-                # Executar o comando no terminal
                 try:
                     subprocess.run(comando, shell=True, check=True)
                     print("Comando executado com sucesso!")
@@ -110,7 +106,7 @@ def main():
                     
                 leitura_arquivo = Leitura("dispositivos_conectados.txt")
                 for disp in leitura_arquivo.get_conteudo():
-                    dispositivo = Dispositivos(disp['nome'], disp['mac_address'])
+                    dispositivo = DispositivoController(disp['nome'], disp['mac_address'])
                     verifica_se_ja_existe = dispositivo.consultar_especifico(mac=dispositivo.mac_address)
                         
                     if verifica_se_ja_existe:
