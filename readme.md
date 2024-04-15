@@ -30,7 +30,11 @@ Onde: user será o nome do usuário do banco de dados MySQL; password será a se
 ## Instalação e Uso
 
 1. Clone o repositório:
+
+```
+shell
 git clone https://github.com/seu-usuario/Monitoramento-de-dispositivos-conectados-na-rede.git
+```
 
 2. Instale as dependências:
 
