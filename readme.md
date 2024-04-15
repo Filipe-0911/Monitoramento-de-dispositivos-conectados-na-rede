@@ -34,9 +34,9 @@ Siga as instruções apresentadas no terminal para utilizar as funcionalidades d
 ## Estrutura do Projeto
 O projeto está estruturado da seguinte forma:
 
-app.py: Arquivo principal que contém a lógica do programa.
-src/controler/DispositivoController.py: Controlador responsável por gerenciar as operações relacionadas aos dispositivos.
-src/model/Dispositivo.py: Modelo de dados que define a estrutura da tabela de dispositivos no banco de dados.
-src/services/Leitura.py: Serviço responsável pela leitura de dispositivos a partir de um arquivo.
-requirements.txt: Arquivo contendo as dependências necessárias para rodar o projeto.
-README.md: Este arquivo, contendo a documentação do projeto.
+- **app.py:** Arquivo principal que contém a lógica do programa.
+- **src/controler/DispositivoController.py:** Controlador responsável por gerenciar as operações relacionadas aos dispositivos.
+- **src/model/Dispositivo.py:** Modelo de dados que define a estrutura da tabela de dispositivos no banco de dados.
+- **src/services/Leitura.py:** Serviço responsável pela leitura de dispositivos a partir de um arquivo.
+- **requirements.txt:** Arquivo contendo as dependências necessárias para rodar o projeto.
+- **README.md:** Este arquivo, contendo a documentação do projeto.
