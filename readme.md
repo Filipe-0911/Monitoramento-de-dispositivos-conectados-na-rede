@@ -11,6 +11,15 @@ Este projeto é um sistema de gestão de acesso à rede que permite inserir, lis
 - **Excluir Dispositivo:** Remove um dispositivo da lista.
 - **Inserir Dispositivos em Série:** Realiza uma varredura na rede local e adiciona todos os dispositivos encontrados à lista.
 
+## IMPORTANTE!
+Antes de utilizar, crie um arquivo .env na pasta raiz com as seguintes variáveis:
+- user=
+- password=
+- host=
+- db_name=
+
+Onde: user será o nome do usuário do banco de dados MySQL; password será a senha deste usuário MySQL; host será o endereço seguido da porta, ex.: localhost:3306; db_name será o nome do banco de dados do MySQL.
+
 ## Requisitos
 
 - Python 3.x
