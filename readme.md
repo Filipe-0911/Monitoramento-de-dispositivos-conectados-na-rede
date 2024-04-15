@@ -30,13 +30,21 @@ Onde: user será o nome do usuário do banco de dados MySQL; password será a se
 ## Instalação e Uso
 
 1. Clone o repositório:
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/seu-usuario/Monitoramento-de-dispositivos-conectados-na-rede.git
 
 2. Instale as dependências:
-pip install sqlalchemy pymysql python-dotenv
+
+```
+shell
+pip install -r requirements.txt
+```
 
 3. Execute o arquivo principal:
+
+```
+shell
 python app.py
+```
 
 Siga as instruções apresentadas no terminal para utilizar as funcionalidades do sistema.
 
