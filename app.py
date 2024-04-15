@@ -1,6 +1,9 @@
 from src.controler.DispositivoController import DispositivoController
 from src.services.Leitura import Leitura
 import subprocess
+from src.services.Plataforma import Plataforma
+
+
 
 def printa_opcoes():
     print()
@@ -74,10 +77,9 @@ def main():
                 nome = input("Informe o novo nome: ")
                 mac_address = input("Informe o novo MAC Address: ")
                 id = int(input("Informe o ID do dispositivo: "))
-                
-                # alteracao = { "nome": nome, "mac_address":mac_address }
                 alteracao = DispositivoController(nome, mac_address)
                 alteracao.alterar_dispositivo(id)
+                
             case "5":
                 DispositivoController.consultar_dados()
                 print()
@@ -95,10 +97,12 @@ def main():
                         print(f"Ocorreu um erro: {e}")
             
             case "6":
-                comando = "sudo nmap -sn 192.168.1.0/24 > dispositivos_conectados.txt"
-
                 try:
+                    system = Plataforma().sistema.lower()
+                    print(system)
+                    comando = "sudo nmap -sn 192.168.1.0/24 > dispositivos_conectados.txt" if system != "windows" else "C:\\Program Files (x86)\\Nmap\\nmap.exe -sn 192.168.1.0/24 > dispositivos_conectados.txt"
                     subprocess.run(comando, shell=True, check=True)
+                    
                     print("Comando executado com sucesso!")
                     
                 except subprocess.CalledProcessError as e:

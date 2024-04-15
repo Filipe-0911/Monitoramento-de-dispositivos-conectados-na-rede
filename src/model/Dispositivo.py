@@ -7,7 +7,7 @@ import os
 load_dotenv()
 
 Base = declarative_base()
-engine = create_engine(f'mysql+pymysql://{os.environ['user']}:{os.environ["password"]}@{os.environ["host"]}/{os.environ["db_name"]}')
+engine = create_engine(f'mysql+pymysql://{os.environ["user"]}:{os.environ["password"]}@{os.environ["host"]}/{os.environ["db_name"]}')
 Session = sessionmaker(bind=engine)
 session = Session()
 
